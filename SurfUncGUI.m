@@ -22,7 +22,7 @@ function varargout = SurfUncGUI(varargin)
 
 % Edit the above text to modify the response to help SurfUncGUI
 
-% Last Modified by GUIDE v2.5 10-May-2018 14:14:35
+% Last Modified by GUIDE v2.5 10-May-2018 15:40:19
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -59,7 +59,7 @@ handles.output = hObject;
 handles.SelectLoadModeMenu.String={'File .mat','MatchID output folder'};
 handles.LoadMode=1;
 handles.UsingCustomMID='n';
-handles.PreProcModeSU='CM-SVD';
+handles.PreProcModeSU='Abs-Mean';
 handles.FitModelSU='loess';
 handles.DecimationSU=0;
 handles.CaricamentoConsenso=false;
@@ -326,4 +326,3 @@ if and(handles.UncConsenso,handles.FitConsenso)
 else
     h = msgbox('Salvataggio impossibile, analisi incompleta','Errore','error');
 end
-

@@ -202,16 +202,20 @@ classdef SUbyF < handle
         function [x_fit,y_fit,z_fit]=SqueezeForFitting(Z,x_v,y_v)
            [m,n]=size(Z);
            Ntot=m*n;
-           x_fit=zeros(Ntot,1);
+           Nnan=sum(sum(isnan(Z)));
+           Nnum=Ntot-Nnan;
+           x_fit=zeros(Nnum,1);
            y_fit=x_fit;
            z_fit=x_fit;
            indx=1;
            for i=1:m
                for j=1:n
+                   if not(isnan(Z(i,j)))
                    z_fit(indx)=Z(i,j);
                    y_fit(indx)=y_v(i);
                    x_fit(indx)=x_v(j);
                    indx=indx+1;
+                   end
                end
            end     
        end
